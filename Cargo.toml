@@ -7,3 +7,5 @@ members = [
 ]
 [profile.release]
 panic = "unwind"
+[features]
+stdsimd = ["core_simd"]
