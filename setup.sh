@@ -14,10 +14,5 @@ rustup install nightly-2023-12-21
 rustup target add wasm32-unknown-unknown --toolchain nightly-2023-12-21
 rustup override set nightly-2023-12-21
 
-# Build only for master branch
-if [ "$BRANCH_NAME" = "master" ]; then
-  cargo build --release
-fi
-
 # Restart bash for changes to take effect
 exec bash
