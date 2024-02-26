@@ -1,8 +1,13 @@
 #!/bin/bash
 
 # Update package lists and install required dependencies
-sudo apt update
-sudo apt install --assume-yes git build-essential clang curl libssl-dev protobuf-compiler
+apt-get update
+apt-get install -y \
+    build-essential \
+    clang \
+    curl \
+    libssl-dev \
+    protobuf-compiler 
 
 # Install Rust using rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
