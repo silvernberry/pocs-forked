@@ -1,11 +1,21 @@
 // .devcontainer/devcontainer.json
-
 {
   "name": "Rust Development Environment",
-  "dockerFile": "Dockerfile",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-  "extensions": ["rust-lang.rust"],
-  "runArgs": ["-v", "${env:HOME}/.cargo:/root/.cargo"]
+
+  "dockerComposeFile": "docker-compose.yml",
+  
+  "remoteUser": "vscode",
+
+  // Add the Docker image, possibly with additional dependencies
+  "image": "jobyreuben/pocs-node",
+
+  "extensions": [],
+
+  // Post-create command to run after container creation
+  "postCreateCommand": "bash ./setup.sh",
+
+  "settings": {},
+
+  // Forwarded ports
+  "forwardPorts": [9944, 9933, 30333, 9156]
 }
