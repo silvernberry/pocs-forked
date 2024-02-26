@@ -1,0 +1,11 @@
+// .devcontainer/devcontainer.json
+
+{
+  "name": "Rust Development Environment",
+  "dockerFile": "Dockerfile",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": ["rust-lang.rust"],
+  "runArgs": ["-v", "${env:HOME}/.cargo:/root/.cargo"]
+}
