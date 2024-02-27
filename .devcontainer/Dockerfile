@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # Copy Docker_setup.sh
-Copy Docker_setup.sh
+COPY Docker_setup.sh
 RUN chmod +x Docker_setup.sh && Docker_setup.sh
 
 # Create a new empty shell project named 'pocs'
