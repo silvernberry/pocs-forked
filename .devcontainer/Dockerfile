@@ -2,8 +2,8 @@
 FROM ubuntu:latest
 
 # Copy Docker_setup.sh
-COPY Docker_setup.sh
-RUN chmod +x Docker_setup.sh && Docker_setup.sh
+COPY Docker_setup.sh /tmp/setup.sh
+RUN chmod +x /tmp/setup.sh && /tmp/setup.sh
 
 # Create a new empty shell project named 'pocs'
 RUN USER=root cargo new --bin pocs
