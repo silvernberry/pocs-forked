@@ -1,12 +1,12 @@
 {
     "name": "Rust Development Environment",
     "build": {
-      "dockerfile": "Dockerfile",
+      "dockerfile": "Dockerfile"
     },
     "settings": { 
       "terminal.integrated.shell.linux": "/bin/bash"
     },
-    "postCreateCommand": "bash ./setup.sh",
+    "postCreateCommand": "chmod +x ./setup.sh && ./setup.sh",
     "forwardPorts": [9944, 9933, 30333],
     "remoteUser": "rustuser"
-  }
+}
