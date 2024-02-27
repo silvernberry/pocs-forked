@@ -1,15 +1,14 @@
 {
   "name": "Rust Development Environment",
-  "image": "ubuntu:latest",
-  "extensions": [
-    "vsc-remote.remote-containers"
-  ],
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash"
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": { }
   },
-  "runArgs": [
-    "--privileged"
-  ],
-  "postCreateCommand": "/workspace/.devcontainer/setup.sh",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  "settings": { 
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [],
+  "postCreateCommand": "bash ./setup.sh",
+  "forwardPorts": [],
+  "remoteUser": "vscode"
 }
