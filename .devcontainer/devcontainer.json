@@ -1,5 +1,15 @@
 {
-  "name": "My Development Environment",
-  "dockerComposeFile": ["docker-compose.yml"],
-  "service": "node"
+  "name": "Rust Development Environment",
+  "image": "ubuntu:latest",
+  "extensions": [
+    "vsc-remote.remote-containers"
+  ],
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "runArgs": [
+    "--privileged"
+  ],
+  "postCreateCommand": "./setup.sh",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
 }
