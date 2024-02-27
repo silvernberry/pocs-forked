@@ -8,7 +8,7 @@
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "extensions": [],
-  "postCreateCommand": "bash ./setup.sh",
+  "postCreateCommand": "bash chmod +x ./setup.sh && ./setup.sh",
   "forwardPorts": [9944, 9933, 30333],
   "remoteUser": "rustuser"
 }
