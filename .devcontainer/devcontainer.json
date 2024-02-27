@@ -10,6 +10,6 @@
   "runArgs": [
     "--privileged"
   ],
-  "postCreateCommand": "./setup.sh",
+  "postCreateCommand": "/workspace/.devcontainer/setup.sh",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
 }
