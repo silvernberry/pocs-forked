@@ -32,3 +32,7 @@ RUN rustup target add wasm32-unknown-unknown --toolchain nightly-2023-12-21
 
 # Override the default Rust version to nightly-2023-12-21 for this project
 RUN rustup override set nightly-2023-12-21 
+
+# Copy the actual source code into the container
+COPY . .
+
