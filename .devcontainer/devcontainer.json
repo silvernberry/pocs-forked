@@ -6,7 +6,7 @@
     "settings": { 
       "terminal.integrated.shell.linux": "/bin/bash"
     },
-    "postCreateCommand": "chmod +x ./setup.sh && ./setup.sh",
+    "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
     "forwardPorts": [9944, 9933, 30333],
     "remoteUser": "rustuser"
 }
