@@ -1,5 +1,5 @@
 # Use the official Rust image as a base
-FROM rust:latest
+FROM ubuntu:latest
 
 # Install necessary dependencies
 RUN apt-get update && \
@@ -27,3 +27,12 @@ RUN rustup target add wasm32-unknown-unknown --toolchain nightly-2023-12-21
 
 # Override the default Rust version to nightly-2023-12-21 for this project
 RUN rustup override set nightly-2023-12-21
+
+# Build the project in release mode
+RUN cargo build --release
+
+# Expose the specified ports
+EXPOSE 9944 9933 30333
+
+# Run the Substrate node in development mode
+CMD ["./target/release/pocs", "--dev", "--rpc-external", "--rpc-cors=Unsafe"]
