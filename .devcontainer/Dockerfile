@@ -24,10 +24,6 @@ WORKDIR /pocs
 RUN rustup default stable && \
     rustup update
 
-# Update to stable version
-RUN rustup default stable && \
-    rustup update
-
 # Install Rust nightly version (as of 2023-12-21)
 RUN rustup install nightly-2023-12-21
 
