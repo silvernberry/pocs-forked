@@ -1,12 +1,13 @@
 {
-    "name": "Rust Development Environment",
-    "build": {
-      "dockerfile": "Dockerfile"
-    },
-    "settings": { 
-      "terminal.integrated.shell.linux": "/bin/bash"
-    },
-    "postCreateCommand": "chmod +x .devcontainer/build.sh && .devcontainer/build.sh",
-    "forwardPorts": [9944, 9933, 30333],
-    "remoteUser": "rustuser"
+  "name": "Rust Development",
+  "dockerFile": ".devcontainer/Dockerfile",
+  "extensions": [
+    "vadimcn.vscode-lldb",
+    "matklad.rust-analyzer"
+  ],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "forwardPorts": [9944, 9933, 30333],
+  "postCreateCommand": "cargo build --release"
 }
