@@ -20,12 +20,11 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 RUN USER=root cargo new --bin pocs
 WORKDIR /pocs
 
-# Update to stable version
-RUN rustup default stable && \
-    rustup update
-
 # Install Rust nightly version (as of 2023-12-21)
 RUN rustup install nightly-2023-12-21
+
+#setup default nightly
+RUN rustup default nightly-2023-12-21
 
 # Configure the Rust toolchain for wasm32-unknown-unknown on nightly-2023-12-21
 RUN rustup target add wasm32-unknown-unknown --toolchain nightly-2023-12-21
