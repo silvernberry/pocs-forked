@@ -10,5 +10,5 @@
   "extensions": [],
   "postCreateCommand": "bash ./setup.sh",
   "forwardPorts": [],
-  "remoteUser": "vscode"
+  "remoteUser": "rustuser"
 }
