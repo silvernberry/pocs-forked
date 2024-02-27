@@ -1,28 +1,23 @@
-# Use the official Ubuntu image as a base
-FROM ubuntu:latest
+# Use the official Rust image as a base
+FROM rust:latest
 
 # Install necessary dependencies
 RUN apt-get update && \
     apt-get install -y \
-    build-essential \
     clang \
-    curl \
     libssl-dev \
     protobuf-compiler 
 
-# Install Rust
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
-# Add Rust binaries to the PATH
-ENV PATH="/root/.cargo/bin:${PATH}"
+# Create a new non-root user to run Docker commands
+RUN useradd -m rustuser
+USER rustuser
 
 # Create a new empty shell project named 'pocs'
-RUN USER=root cargo new --bin pocs
-WORKDIR /pocs
+RUN cargo new --bin pocs
+WORKDIR /home/rustuser/pocs
 
-# Update to stable version
-RUN rustup default stable && \
-    rustup update
+# Update Rust toolchain to the latest stable version
+RUN rustup update stable
 
 # Install Rust nightly version (as of 2023-12-21)
 RUN rustup install nightly-2023-12-21
@@ -31,7 +26,4 @@ RUN rustup install nightly-2023-12-21
 RUN rustup target add wasm32-unknown-unknown --toolchain nightly-2023-12-21
 
 # Override the default Rust version to nightly-2023-12-21 for this project
-RUN rustup override set nightly-2023-12-21 
-
-# Copy the actual source code into the container
-COPY . .
+RUN rustup override set nightly-2023-12-21
