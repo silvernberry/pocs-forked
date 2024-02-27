@@ -12,8 +12,8 @@ RUN apt-get update && \
 RUN useradd -m rustuser
 USER rustuser
 
-# Create a new empty shell project named 'pocs'
-RUN cargo new --bin pocs
+# Create a new empty shell project named 'pocs' within the user's home directory
+RUN cargo new --bin /home/rustuser/pocs
 WORKDIR /home/rustuser/pocs
 
 # Update Rust toolchain to the latest stable version
