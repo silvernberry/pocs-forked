@@ -16,9 +16,13 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # Add Rust binaries to the PATH
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Create a new empty shell project named 'pocs'
-RUN USER=root cargo new --bin pocs
-WORKDIR /pocs
+# Create a new non-root user to run Docker commands
+RUN useradd -m rustuser
+USER rustuser
+
+# Create a new empty shell project named 'pocs' within the user's home directory
+RUN cargo new --bin /home/rustuser/pocs
+WORKDIR /home/rustuser/pocs
 
 # Update to stable version
 RUN rustup default stable && \
