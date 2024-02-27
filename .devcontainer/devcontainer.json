@@ -1,10 +1,11 @@
 {
-  "name": "Rust Development",
-  "dockerFile": "Dockerfile",
+    "name": "Rust Development Environment",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "args": { }
+    },
+    "postCreateCommand": "bash chmod +x .devcontainer/build.sh && .devcontainer/build.sh",
+    "forwardPorts": [9944, 9933, 30333],
+    "remoteUser": "rustuser"
+  }
   
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-  "forwardPorts": [9944, 9933, 30333],
-  "postCreateCommand": "cargo build --release"
-}
