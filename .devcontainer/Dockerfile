@@ -8,6 +8,9 @@ RUN apt-get update && \
     libssl-dev \
     protobuf-compiler 
 
+# Install Rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
 # Create a new non-root user to run Docker commands
 RUN useradd -m rustuser
 USER rustuser
