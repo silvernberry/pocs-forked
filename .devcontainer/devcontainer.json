@@ -1,6 +1,6 @@
 {
   "name": "Rust Development",
-  "dockerFile": ".devcontainer/Dockerfile",
+  "dockerFile": "Dockerfile",
   "extensions": [
     "vadimcn.vscode-lldb",
     "matklad.rust-analyzer"
