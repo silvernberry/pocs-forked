@@ -9,6 +9,6 @@
   },
   "extensions": [],
   "postCreateCommand": "bash ./setup.sh",
-  "forwardPorts": [],
+  "forwardPorts": [9944, 9933, 30333],
   "remoteUser": "rustuser"
 }
