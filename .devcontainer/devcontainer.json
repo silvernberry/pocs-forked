@@ -1,10 +1,7 @@
 {
   "name": "Rust Development",
   "dockerFile": "Dockerfile",
-  "extensions": [
-    "vadimcn.vscode-lldb",
-    "matklad.rust-analyzer"
-  ],
+  
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
