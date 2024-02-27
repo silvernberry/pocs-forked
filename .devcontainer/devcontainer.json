@@ -1,8 +1,14 @@
 {
-  "name": "Rust Development Environment",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "rust_dev",
-  "extensions": [],
-  "forwardPorts": [9944, 9933, 30333],
-  "remoteUser": "rustuser"
-}
+    "name": "Rust Development Environment",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "args": { }
+    },
+    "settings": { 
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [],
+    "postCreateCommand": "bash ./setup.sh",
+    "forwardPorts": [9944, 9933, 30333],
+    "remoteUser": "rustuser"
+  }
